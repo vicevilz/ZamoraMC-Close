@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 1.1 seconds
-Output:
 # ZamoraMC-Close
 
 ZamoraMC-Close is a lightweight Paper plugin that allows authorized administrators to remotely close the open inventory of a connected player.
@@ -80,4 +77,3 @@ target/ZamoraMC-Close-1.0.0.jar
 ## License
 
 This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md).
-

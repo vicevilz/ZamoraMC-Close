@@ -1,0 +1,14 @@
+target/
+build/
+.idea/
+.vscode/
+*.jar
+*.class
+*.log
+.classpath
+.project
+.settings/
+.factorypath
+hs_err_pid*
+replay_pid*
+runtime-tests/

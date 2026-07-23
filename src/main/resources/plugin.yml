@@ -1,0 +1,16 @@
+name: ZamoraMC-Close
+version: '${project.version}'
+main: com.vicevil.zamoramcclose.ZamoraMCClose
+description: Remotely close any player's open inventory.
+author: Vicevil
+website: https://github.com/vicevilz/ZamoraMC-Close
+api-version: '1.21'
+commands:
+  zamoramc-close:
+    description: Close the open inventory of a player.
+    usage: /zamoramc-close <jugador>
+    permission: zamoramcclose.use
+permissions:
+  zamoramcclose.use:
+    description: Allows the player to close another player's open inventory.
+    default: op
