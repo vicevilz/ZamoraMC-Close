@@ -1,6 +1,7 @@
 messages:
   no-permission: "&cNo tienes permiso."
   player-not-found: "&cEl jugador no está conectado."
-  usage: "&cUso: /zamoramc-close <jugador>"
+  usage: "&cUso: /zamoramc-close <jugador|reload>"
+  reload-success: "&aConfiguración recargada correctamente."
   inventory-closed: "&aInventario cerrado correctamente."
   inventory-closed-target: "&eTu inventario ha sido cerrado."
