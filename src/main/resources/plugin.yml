@@ -8,7 +8,7 @@ api-version: '1.21'
 commands:
   zamoramc-close:
     description: Close the open inventory of a player.
-    usage: /zamoramc-close <jugador>
+    usage: /zamoramc-close <jugador|reload>
     permission: zamoramcclose.use
 permissions:
   zamoramcclose.use:
