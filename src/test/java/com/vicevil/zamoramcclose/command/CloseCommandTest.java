@@ -33,7 +33,8 @@ class CloseCommandTest {
         MemoryConfiguration configuration = new MemoryConfiguration();
         configuration.set("messages.no-permission", "&cNo tienes permiso.");
         configuration.set("messages.player-not-found", "&cEl jugador no está conectado.");
-        configuration.set("messages.usage", "&cUso: /zamoramc-close <jugador>");
+        configuration.set("messages.usage", "&cUso: /zamoramc-close <jugador|reload>");
+        configuration.set("messages.reload-success", "&aConfiguración recargada correctamente.");
         configuration.set("messages.inventory-closed", "&aInventario cerrado correctamente.");
         configuration.set("messages.inventory-closed-target", "&eTu inventario ha sido cerrado.");
         configManager = new ConfigManager(configuration);
@@ -83,7 +84,17 @@ class CloseCommandTest {
 
         closeCommand.onCommand(sender, COMMAND, "zamoramc-close", new String[0]);
 
-        verify(sender).sendMessage("§cUso: /zamoramc-close <jugador>");
+        verify(sender).sendMessage("§cUso: /zamoramc-close <jugador|reload>");
+    }
+
+    @Test
+    void consoleReloadsConfigurationAndDoesNotSearchForAPlayer() {
+        CommandSender console = mock(CommandSender.class);
+
+        assertTrue(closeCommand.onCommand(console, COMMAND, "zamoramc-close", new String[]{"reload"}));
+
+        verify(console).sendMessage("§aConfiguración recargada correctamente.");
+        verify(playerResolver, never()).find("reload");
     }
 
     @Test
@@ -103,5 +114,13 @@ class CloseCommandTest {
 
         assertEquals(List.of("Stella", "Steve"),
                 closeCommand.onTabComplete(sender, COMMAND, "zamoramc-close", new String[]{"st"}));
+    }
+
+    @Test
+    void tabCompletionIncludesReloadSubcommand() {
+        CommandSender sender = mock(CommandSender.class);
+
+        assertEquals(List.of("reload"),
+                closeCommand.onTabComplete(sender, COMMAND, "zamoramc-close", new String[]{"re"}));
     }
 }
