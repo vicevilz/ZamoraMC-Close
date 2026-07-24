@@ -74,7 +74,7 @@ mvnw.cmd clean package
 The compiled artifact is generated at:
 
 ```text
-target/ZamoraMC-Close-1.0.0.jar
+target/ZamoraMC-Close-1.1.1.jar
 ```
 
 ## Testing
