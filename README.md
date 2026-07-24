@@ -50,9 +50,9 @@ Messages use Bukkit's legacy `&` color-code format.
 The plugin targets stable Bukkit/Paper APIs and is intended for:
 
 - Paper 1.21 through 1.21.11;
-- Paper 26.1 and later, including Paper 26.2.
+- Paper 26.2.
 
-Paper's version numbering changes after the 1.21.x line. Compatibility with any separately published Paper 1.21.12 build should be confirmed against that server build if available.
+Paper's version numbering changes after the 1.21.x line. Paper 1.21.12 compatibility is [Not verified] because no separate server build was available during validation.
 
 ## Build
 
