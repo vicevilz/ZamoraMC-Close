@@ -12,10 +12,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public final class CloseCommand implements CommandExecutor, TabCompleter {
 
     public static final String PERMISSION = "zamoramcclose.use";
+    private static final String RELOAD_ARGUMENT = "reload";
 
     private final PlayerResolver playerResolver;
     private final ConfigManager configManager;
@@ -29,6 +31,12 @@ public final class CloseCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player && !sender.hasPermission(PERMISSION)) {
             sender.sendMessage(configManager.getMessage("no-permission"));
+            return true;
+        }
+
+        if (args.length == 1 && RELOAD_ARGUMENT.equalsIgnoreCase(args[0])) {
+            configManager.reload();
+            sender.sendMessage(configManager.getMessage("reload-success"));
             return true;
         }
 
@@ -56,8 +64,9 @@ public final class CloseCommand implements CommandExecutor, TabCompleter {
         }
 
         String prefix = args[0].toLowerCase(Locale.ROOT);
-        return playerResolver.onlinePlayerNames().stream()
+        return Stream.concat(Stream.of(RELOAD_ARGUMENT), playerResolver.onlinePlayerNames().stream())
                 .filter(name -> name.toLowerCase(Locale.ROOT).startsWith(prefix))
+                .distinct()
                 .sorted(String.CASE_INSENSITIVE_ORDER)
                 .collect(Collectors.toList());
     }
