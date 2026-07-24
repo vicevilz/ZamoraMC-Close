@@ -74,6 +74,11 @@ The compiled artifact is generated at:
 target/ZamoraMC-Close-1.0.0.jar
 ```
 
+## Testing
+
+The unit test suite covers console execution, permission handling, argument validation, player lookup, tab completion, configurable messages, and the invocation of Bukkit's `Player#closeInventory()` API. MockBukkit was evaluated for a stateful open-inventory test, but the available releases tested were not compatible with the selected Paper API 26.2 test classpath, so it is not included as a project dependency. Server startup was also checked with Paper 1.21.11 on JDK 21 and Paper 26.2 on JDK 25. Visual client-side inventory closure was not tested because no live Minecraft client was available.
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md).
+
